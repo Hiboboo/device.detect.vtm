@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_30"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/scan_ret"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:textStyle="bold"
+            android:textColor="@color/gray_text_1"
+            android:textSize="@dimen/sp_42"
+            android:padding="@dimen/dp_15"
+            android:background="@drawable/bg_insert_card"/>
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dp_170"
+            android:layout_marginTop="@dimen/dp_40"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_50"
+            android:paddingEnd="0dp"
+            android:paddingTop="@dimen/dp_23"
+            android:paddingBottom="@dimen/dp_23"
+            android:text="@string/tips_scan_tips"
+            android:textSize="@dimen/sp_32"
+            android:textColor="@color/white"
+            android:lineSpacingExtra="@dimen/dp_20"
+            android:background="@drawable/bg_tips"/>
+    </LinearLayout>
+</layout>

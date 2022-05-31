@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">硬件检测</string>
+
+    <string name="label_ic_reader_connect_test">IC读卡器连接测试</string>
+    <string name="label_bank_reader_connect_test">银行卡读卡器连接测试</string>
+    <string name="label_keyboard_reader_connect_test">密码键盘连接测试</string>
+    <string name="label_cashbox_reader_connect_test">钱箱连接测试</string>
+    <string name="label_light_reader_connect_test">灯光控制器连接测试</string>
+    <string name="label_cashbox_reset">钱箱复位</string>
+    <string name="label_cashbox_force_reset">强制复位</string>
+    <string name="label_cashbox_start_cashin">开始进钞</string>
+    <string name="label_cashbox_finish_cashin">结束进钞</string>
+    <string name="label_printer_connect">连接打印机</string>
+    <string name="label_printer_state">获取打印机状态</string>
+    <string name="label_printer_check">测试打印小票</string>
+
+    <string name="progress_connect">正在连接&#8230;</string>
+    <string name="tips_connect_successful">连接成功</string>
+    <string name="tips_connect_failure">连接失败</string>
+    <string name="tips_scan_tips">温馨提示\n请将您的付款码对准设备扫码器。</string>
+</resources>

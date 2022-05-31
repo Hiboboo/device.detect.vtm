@@ -1,0 +1,94 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+def appname = "jinkeen_device_detect_vtm"
+
+static def releaseTime() {
+    return new Date().format("yyyyMMddHHmmss", TimeZone.getTimeZone("GMT+08:00"))
+}
+
+android {
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName =
+                    "${appname}-${defaultConfig.versionName}(${defaultConfig.versionCode})-${variant.buildType.name}(${releaseTime()}).apk"
+        }
+    }
+
+    compileSdk 32
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        applicationId "com.jinkeen.vtm.detect"
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        debug {
+            storeFile file('D:/Jinkeen Files/apk-sign/appkey.jks')
+            storePassword 'jInkeen2011'
+            keyAlias = 'appkey'
+            keyPassword 'jInkeen2011'
+        }
+        release {
+            storeFile file('D:/Jinkeen Files/apk-sign/appkey.jks')
+            storePassword 'jInkeen2011'
+            keyAlias = 'appkey'
+            keyPassword 'jInkeen2011'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['zd115-libs', 'bankpay-libs', 'uniwin-m339-libs', 'printer-libs']
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // 基础库
+    implementation 'com.jinkeen.base:frame:1.0.19'
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    // RecyclerView 适配器支持
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7'
+    // ZD115读卡器
+    implementation fileTree(dir: 'zd115-libs', include: ['*.jar'])
+    // 银行卡读卡器
+    implementation fileTree(dir: 'bankpay-libs', include: ['*.jar'])
+    // UniwinM339
+    implementation fileTree(dir: 'uniwin-m339-libs', include: ['*.jar'])
+    // 小票打印
+    implementation fileTree(dir: 'printer-libs', include: ['*.jar'])
+}
